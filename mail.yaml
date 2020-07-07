@@ -1,15 +1,8 @@
 ---
-- hosts: localhost
+- hosts: all
   gather_facts: false
   become: yes
   tasks:
-
-  - name: Update the Operating System with latest updates
-    yum:
-      name: "*"
-      state: latest
-      update_cache: yes
-
   - name: Install the required packages
     yum:
       name:
