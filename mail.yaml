@@ -10,7 +10,7 @@
         - wget
      state: installed
      tags: install_package
-  
+     
    - name: "Check if NGINX is installed"
      package_facts:
       manager: "auto"
