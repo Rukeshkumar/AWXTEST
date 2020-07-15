@@ -8,6 +8,15 @@
       name:
         - curl
         - wget
-        - bind-utils
-        - telnet
-      state: installed
+    state: installed
+    tags: install_package
+  
+  - name: "Check if NGINX is installed"
+    package_facts:
+      manager: "auto"
+    tags: validate
+  - name: "Curl package test result"
+    debug: 
+      msg: "Curl was found"
+    when: "'curl' in ansible_facts.packages"
+    tags: validate
