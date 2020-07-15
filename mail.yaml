@@ -14,9 +14,9 @@
    - name: "Check if NGINX is installed"
      package_facts:
       manager: "auto"
-    tags: validate
+     tags: validate
    - name: "Curl package test result"
      debug: 
       msg: "Curl was found"
-    when: "'curl' in ansible_facts.packages"
-    tags: validate
+     when: "'curl' in ansible_facts.packages"
+     tags: validate
