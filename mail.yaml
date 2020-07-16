@@ -3,20 +3,20 @@
   gather_facts: false
   become: yes
   tasks:
-   - name: Install the required packages
-     yum:
+    - name: Install the required packages
+      yum:
        name:
         - curl
         - wget
-     state: installed
-     tags: install_package
+      state: installed
+      tags: install_package
      
-   - name: "Check if NGINX is installed"
-     package_facts:
-      manager: "auto"
-     tags: validate
-   - name: "Curl package test result"
-     debug: 
-      msg: "Curl was found"
-     when: "'curl' in ansible_facts.packages"
-     tags: validate
+    - name: "Check if NGINX is installed"
+      package_facts:
+        manager: "auto"
+      tags: validate
+    - name: "Curl package test result"
+      debug: 
+        msg: "Curl was found"
+      when: "'curl' in ansible_facts.packages"
+      tags: validate
