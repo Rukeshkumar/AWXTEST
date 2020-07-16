@@ -20,3 +20,12 @@
       msg: "Curl was found"
     when: "'curl' in ansible_facts.packages"
     tags: validate
+  
+  - name: "ServiceNow Check user"
+    snow_record:
+    username: rest_user
+    password: Ruku@123
+    instance: dev50610
+    state: present
+    table: sys_user
+    lookup_field: sys_id
