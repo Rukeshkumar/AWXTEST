@@ -7,7 +7,7 @@
       name:
        - curl
        - wget
-     state: installed
+      state: installed
      tags: install_package
      
   - name: "Check if NGINX is installed"
