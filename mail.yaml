@@ -1,31 +1,7 @@
 ---
-- hosts: all
-  become: true
-  tasks:
-  - name: Install the required packages
-    yum:
-      name:
-       - curl
-       - wget
-      state: installed
-    tags: install_package
-  
-  - name: "Check if NGINX is installed"
-    package_facts:
-      manager: "auto"
-    tags: validate
-    
+- hosts: group1
+  tasks:    
   - name: "Curl package test result"
     debug: 
       msg: "Curl was found"
     when: "'curl' in ansible_facts.packages"
-    tags: validate
-  
-  - name: "ServiceNow Check user"
-    snow_record:
-    username: rest_user
-    password: Ruku@123
-    instance: dev50610
-    state: present
-    table: sys_user
-    lookup_field: sys_id
