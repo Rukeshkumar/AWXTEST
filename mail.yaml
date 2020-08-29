@@ -3,7 +3,7 @@
   tasks:
    - name: Install the package
      yum:
-       name: curl
+       name: nmap
        state: present
        use_backend: yum
        
